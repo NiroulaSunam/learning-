@@ -1,3 +1,12 @@
+### Venv 
+python -m venv .venv
+
+**Activate** \
+source .venv/bin/activate
+
+### Check installed libraries 
+pip list
+
 ### Installation
 pip install fastapi \
 pip install uvicorn  --> server used to test and run fastapi applications
@@ -78,3 +87,22 @@ curl -X <METHOD> <URL> -H <HEADERS> -d <DATA> \
 
 #### cURL/Swagger: Tools to verify the "Logistics" are working before I build the UI (The Inspector). 
 
+---
+
+# Frontent 
+
+## React
+React is a JavaScript library for building user interfaces. In this, you describe what the UI should look like based on data, and React figures out how to update the page when that data changes. You stop thinking "update this element" and start thinking "this is what the screen looks like when the data looks like this" 
+This is called declarative programming - you ddeclare the result, not the steps
+
+## What is a component?
+React UIs are built from components- reusable pieces of UI. \
+A button, a form, a todo item, the whole page - each can be its own compoent. COmponent can contain other components
+
+## What is Vite? 
+When you write React code, the browser can't actually run it directly - React uses JSX ( a special syntax mixing HTML and JavaScript) that browswers don't understand natively. 
+
+Vite transforms it into plain Javascript. Its a build tool and dev server. It
+- transforms your React/JSX code into browser -ready JavaScript
+- Runs a local sever (on port 5173 - which is why your CORS is set to that)
+- Refreshes the browser instantly when you save a file
