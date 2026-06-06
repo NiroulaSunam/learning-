@@ -106,3 +106,5 @@ Vite transforms it into plain Javascript. Its a build tool and dev server. It
 - transforms your React/JSX code into browser -ready JavaScript
 - Runs a local sever (on port 5173 - which is why your CORS is set to that)
 - Refreshes the browser instantly when you save a file
+
+npm create vite@latest frontend -- --template react
