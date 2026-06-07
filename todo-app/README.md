@@ -85,11 +85,11 @@ curl -X <METHOD> <URL> -H <HEADERS> -d <DATA> \
 - Scriptable: Because it’s a command-line tool, you can write a script to test 1,000 requests in a row, which is impossible to do manually in a browser.
 - Complete Control: You can fake your "User-Agent" (to make the server think you're using an iPhone) or send specific "Cookies" to stay logged in
 
-#### cURL/Swagger: Tools to verify the "Logistics" are working before I build the UI (The Inspector). 
+**cURL/Swagger: Tools to verify the "Logistics" are working before I build the UI (The Inspector).** 
 
----
+--- 
 
-# Frontent 
+# Frontend 
 
 ## React
 React is a JavaScript library for building user interfaces. In this, you describe what the UI should look like based on data, and React figures out how to update the page when that data changes. You stop thinking "update this element" and start thinking "this is what the screen looks like when the data looks like this" 
@@ -108,3 +108,15 @@ Vite transforms it into plain Javascript. Its a build tool and dev server. It
 - Refreshes the browser instantly when you save a file
 
 npm create vite@latest frontend -- --template react
+
+## Fetch and Hooks
+Every time React re-renders a component - meaning every time something changes on screen - it runs the entire function again from top to bottom. 
+
+Hooks are special functions built into React that let you do things that need to happen outside of the normal render cycle. 
+
+useState -> remember this data
+useEffect -> do this at the right moment
+
+useState - lets you store data inside a component that persists between re-renders. When it changes, React updates the screen. 
+useEffect - lets you run code at specific moments, like "run this once when the component first loads". This is where fecthing lives.
+

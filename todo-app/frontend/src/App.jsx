@@ -1,122 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
+    const [newText, setNewText] = useState('')
+
+    const [todos, setTodos] = useState([])
+    // todos -> current value in the box. currently its []
+    // setTodos -> function to update value in the box. when you call
+
+    // this is for "get" for the frontend to talk to the backend 
+    useEffect(() => { // {... }, [] -> function to run and dependency array
+        fetch('http://localhost:8000/todos') 
+        .then(res => res.json()) // res is the raw HTTP response - status code, headers and body. || res.json() readds that stream and parses it into a JavaScript object
+        .then(data => setTodos(data)) 
+    }, []) // [] means "run this function once, when the component first loads, and never again. Thats exactly what we want for fetching initial data." If there is todo inside, it will run whenever todo changes.
+
+    // this is for "post" for the frontend to talk to the backend
+    function handleAdd() {
+        fetch('http://localhost:8000/todos', {
+            method: 'POST', // what kind of request
+            headers: { 'Content-Type': 'application/json' }, // telling the backend we are sending JSON
+            body: JSON.stringify({ text: newText }) // actual data we're sending, converted to a JSON string
+            })
+            .then(res => res.json())
+            .then(data => {
+                setTodos([...todos, data]) // instead of adding onto the todo which react won't know, we are copy pasting the todo into the new list and the new item added
+                setNewText('') // after successfully adding the text, it sets the input box back to empty
+        })
+    }
+
+    // this is for "delete" for the frontend to talk to the backend
+    function handleDelete(id) {
+        fetch(`http://localhost:8000/todos/${id}`, {
+            method: 'DELETE' // goes to the delete on backend and makes it run so it filters out the data in backend
+        })
+        .then(() => { // nothing is given back from the backend so () is empty unlike the post
+            setTodos(todos.filter(todo => todo.id !== id)) // filter updates the frontend's display copy to match what the backend already did
+        })
+
+    }
+
+    return (
         <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+            <h1>Todo App</h1>
+            <input 
+                value={newText}
+                onChange={e => setNewText(e.target.value)}
+                placeholder="Add a todo"
+            />
+            <button onClick={handleAdd}>Add</button>
+            <ul>
+                {todos.map(todo => (
+                    <li key={todo.id}>
+                        {todo.text}
+                        <button onClick={() => handleDelete(todo.id)}>
+                            Delete
+                        </button>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    )
 }
 
 export default App
