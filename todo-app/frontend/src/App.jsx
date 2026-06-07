@@ -11,12 +11,13 @@ function App() {
     // this is for "get" for the frontend to talk to the backend 
     useEffect(() => { // {... }, [] -> function to run and dependency array
         fetch('http://localhost:8000/todos') 
-        .then(res => res.json()) // res is the raw HTTP response - status code, headers and body. || res.json() readds that stream and parses it into a JavaScript object
+        .then(res => res.json()) // res is the raw HTTP response - status code, headers and body. || res.json() reads that stream and parses it into a JavaScript object
         .then(data => setTodos(data)) 
     }, []) // [] means "run this function once, when the component first loads, and never again. Thats exactly what we want for fetching initial data." If there is todo inside, it will run whenever todo changes.
 
     // this is for "post" for the frontend to talk to the backend
     function handleAdd() {
+        if (!newText) return // returns if the function is empty
         fetch('http://localhost:8000/todos', {
             method: 'POST', // what kind of request
             headers: { 'Content-Type': 'application/json' }, // telling the backend we are sending JSON
@@ -37,7 +38,20 @@ function App() {
         .then(() => { // nothing is given back from the backend so () is empty unlike the post
             setTodos(todos.filter(todo => todo.id !== id)) // filter updates the frontend's display copy to match what the backend already did
         })
+    }
 
+    function handleUpdate(id) {
+        const newText = prompt('Edit todo:')
+        if (!newText) return
+        fetch(`http://localhost:8000/todos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ text: newText })
+        })
+        .then(res => res.json())
+        .then(data => {
+            setTodos(todos.map(todo => todo.id === id? data: todo)) // condition ? value if true : value if false. so if it matches the id then change to data otherwise the same.
+        })
     }
 
     return (
@@ -53,6 +67,9 @@ function App() {
                 {todos.map(todo => (
                     <li key={todo.id}>
                         {todo.text}
+                        <button onClick={() => handleUpdate(todo.id)}>  {/* () => means to do the action only when clicked and not when it is rendered. It needs arguments (id) while handleAdd does not and just adds */}
+                            Edit
+                        </button>
                         <button onClick={() => handleDelete(todo.id)}>
                             Delete
                         </button>
