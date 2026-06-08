@@ -53,3 +53,18 @@ npx create-next-app@latest notes-app
 ## Understanding res and req
 res -> response -> what you send back to the client. 
 req -> request -> what client sends you. 
+
+## Understanding frontend and backend 
+api -> whatever is inside it is backend \
+pages -> whatever inside it is frontent except the api folder \
+public -> images \
+styles -> css folders \
+eslint.config.mjs -> for people to write polished and similar structure code | code quality checker\
+jsconfig.json -> helps VS code understand your project structure for better autocomplete
+next.config.mjs -> Next.js configuration itself
+lib -> added later to write whatever connects to the database 
+
+## Installing pg (library that lets JavaScript talk to PostgreSQL)
+```bash
+npm install pg
+```
