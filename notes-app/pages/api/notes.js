@@ -2,11 +2,17 @@ const pool = require('../../lib/db')
 // importing the pool from lib (older node.js way of importing)
 //.. means "go up" 2 times means to go up 2 times 
 
-
 export default async function handler(req, res) {
     // export is exporting it to other files
     // async because database queries take time,
     // req and res for incoming request and outgoing response
+
+
+    // used to catch errors - after added on to see what happened because it was not working. keep it to learn for later
+    console.log('Method', req.method) 
+    console.log('Body:', req.body)
+
+    
     if (req.method === 'GET') {
         //req.method -> when frontent makes a fetch call, the HTTP request includes a method - GET, POST, PUT, or DELETE.
         // Next.js receives that request and puts everything about it inside the req object. 
@@ -34,6 +40,7 @@ export default async function handler(req, res) {
             res.status(201).json(result.rows[0])
             // results.rows[0] is used to unwrap it from array. the results.rows is given as [{}], we use rows[0] to get only the {}
         } catch (error) {
+            console.error(error)
             res.status(500).json({ error: 'Failed to create note' })
         }
 
