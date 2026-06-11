@@ -1,0 +1,58 @@
+<!DOCTYPE html> <!-- Declaration that tells the browser this is a modern HTML5 document -->
+<html lang="en"> <!-- root element. lang="en" tells browsers and screen readers that this page is in English. -->
+    <head> <!-- Contains metadata - information about the document that the browser reads -->
+        <meta charset="UTF-8" /> <!-- Tells the browser to use UTF-8 character encoding. This means the page can display any character -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- This makes the site work on mobile. Without it, mobile browser zoom out and show your page as if it's a desktop screen shruk down. tells browser: match width to device width and don't zoom-->
+        <title>Sunam | Developer</title> <!-- Browser tab text -->
+        <link rel="stylesheet" href="style.css" /> <!-- Connects CSS-->
+    </head>
+
+    <body> <!-- Visible part of the page-->
+        <header>
+            <nav>
+                <span class ="logo">Sunam</span>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
+                <h1>Hi, I'm Sunam</h1>
+                <p>Full-stack developer building real things. </p>
+                <a href="#projects">See my work</a>
+            </section>
+
+            <section id="about">
+                <h2>About</h2>
+                <p>I'm a developer focused on building clean, functional web applications. I work with React, Next.js, Python, and PostgreSQL.</p>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Todo App</h3>
+                        <p> A full-stack todo app built with React and FastAPI. Learned CORS application and connecting frontent and backend. </p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Notes App</h3>
+                        <p>A notes app built with Next.js and PostgreSQL. Frontend and Backend is already connected. Learned to use PostgreSQL for coding. </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Want to work together? React out at <a href="fake.mailforpractice:you@email.com"you@email.com></a></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built by Sunam</p>
+        </footer>
+    </body>
+</html>
