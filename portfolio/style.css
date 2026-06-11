@@ -1,7 +1,7 @@
 * {
     margin: 0; 
     padding: 0;
-    box-sizing: border-box; /* look in comments for what it does (important) */
+    box-sizing: border-box; /* look in README for what it does (important) */
 } /* resets every single element on the page */
 
 body {
@@ -72,4 +72,116 @@ nav a {
 #about p { 
     color: #555555;
     font-size: 16px;
+}
+
+#projects {
+    padding: 80px 40px;
+    background-color: #f9f9f9;
+}
+
+#projects h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide the available width into two equal columns, give each one the same fraction. if 1fr 2fr then you'd get two columns where the second is twice as wide as teh first */
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px; /* rounds the corners of box. without it card would have sharp 90 degree corners */
+    border: 1px solid #e5e5e5; /* visible border around the card */
+}
+
+.project-card h3 {
+     font-size: 20px;
+     margin-bottom: 8px;
+}
+
+.project-card p {
+    color: #555555;
+    font-size: 14px;
+}
+
+#contact {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+#contact p {
+    color: #555555;
+}
+
+#contact a {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+footer {
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #999999;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Transition */
+nav a:hover {
+    color: #555555;
+}
+
+#hero a:hover {
+    background-color: #333333;
+}
+
+.project-card:hover {
+    border-color: #aaaaaa;
+    transform: translateY(-4px); /* it is pushing the card up - but its purely visual - it moves the element on screen but the elements are not affected. so nothing else shifts to make room. */
+}
+
+* {
+    transition: all 0.2s ease; /* makes the transition movement smooth instead of instant -> all - apply transition to every property that change | 0.2s - animation takes 0.2 sec | ease- starts fast , slows down at the end (feels natural) */
+}
+
+/* for mobile */
+@media (max-width: 768px) {
+    nav{
+        padding: 16px 20px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    #hero {
+        padding: 60px 20px;
+    }
+
+    #hero h1 {
+        font-size: 32px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #about, #contact {
+        padding: 60px 20px;
+    }
+
+    #projects {
+        padding: 60px 20px;
+    }
 }
