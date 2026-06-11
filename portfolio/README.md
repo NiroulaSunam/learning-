@@ -1,0 +1,3 @@
+**box-sizing:**
+By default, when you set width: 200px on an element and then add padding: 20px, the element becomes 240px wide — the padding is added on top of the width. This is confusing and causes layout bugs constantly.
+border-box changes that rule: the width you set includes the padding and border. So width: 200px with padding: 20px stays 200px total. The padding eats into the content space instead of expanding outward.
