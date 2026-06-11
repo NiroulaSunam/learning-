@@ -114,9 +114,9 @@ Every time React re-renders a component - meaning every time something changes o
 
 Hooks are special functions built into React that let you do things that need to happen outside of the normal render cycle. 
 
-useState -> remember this data
+useState -> remember this data \
 useEffect -> do this at the right moment
 
-useState - lets you store data inside a component that persists between re-renders. When it changes, React updates the screen. 
+useState - lets you store data inside a component that persists between re-renders. When it changes, React updates the screen. \
 useEffect - lets you run code at specific moments, like "run this once when the component first loads". This is where fecthing lives.
 
