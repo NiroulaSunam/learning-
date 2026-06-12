@@ -1,0 +1,33 @@
+.badge {
+    padding:2px 8px;
+    border: none;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.primary {
+    background-color: #2f86e5;
+    color: white;
+}
+
+.secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+
+.small {
+    font-size: 12px;
+    padding: 2px 8px;
+}
+
+.medium {
+    font-size: 13px;
+    padding: 2px 10px;
+}
+
+.large {
+    font-size: 13px;
+    padding: 4px 10px;
+}
+
