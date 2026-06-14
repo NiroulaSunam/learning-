@@ -1,0 +1,41 @@
+.card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.content{
+    padding: 16px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: 700px;
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.small {
+    width: 200px;
+}
+
+.medium{
+    width: 300px;
+}
+
+.large{
+    width: 400 px;
+}
