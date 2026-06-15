@@ -1,0 +1,25 @@
+.wrapper{
+    padding: 2px 8px;
+}
+
+.label{
+    font-size: 12px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input{
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 2px 8px;
+    width: 100%;
+}
+
+.error{
+    border-color: red;
+}
+
+.errorText{
+    font-size: 10px;
+    color: red;
+}
