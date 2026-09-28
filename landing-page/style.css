@@ -1,0 +1,99 @@
+/* * {
+    border: 2px solid red;
+} */
+* {
+    font: Roboto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+/* Color for 3 different bars */
+
+.navbar, .hero, .footer {
+    background-color: #1F2937;
+}
+} 
+
+
+/* Padding for the whole page */
+.navbar, .hero, .info, .quote, .action, .footer {
+    padding: 2rem 10rem;
+}
+
+/* Navigation Bars */
+
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navlist {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.navlist a {
+    text-decoration: none;
+    color: #555555;
+    font-weight:500;
+    transition: color 0.2s ease;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #F9FAF8;
+}
+
+/* Hero Bar */
+
+h1 {
+    font-size: 48px;
+    color: #F9FAF8;
+    font-weight: 900;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+}
+.hero p {
+    font-size: 18px;
+    color: #E5E7EB;
+}
+
+.hero button { 
+    background-color: #3882F6;
+}
+
+/* Info Bar */
+
+.info h2 {
+    font-size: 36px;
+    color: #1F2937;
+    font-weight: 900;
+}
+
+/* Quote Bar */
+
+.quote .main-quote{
+    background-color: #E5E7EB;
+    font-size: 36px;
+    color: #1F2937;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Action Bar */
+
+.action .call {
+    background-color: #3882F6;
+    text-align: left;
+}
+
+/* Footer Bar */
