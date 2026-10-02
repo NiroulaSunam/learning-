@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 60px; 
+    min-height: 100vh; 
+}
+
+/* Container sizing for a wide/long keyboard profile */
+.screen {
+  max-width: 1000px;
+  margin: 40px 80px;
+  background: #121212;
+  padding: 20px;
+  border-radius: 24px; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Big Display Screen */
+.text {
+  background: #1c1c1e;
+  color: #fff;
+  font-size: 3rem;
+  padding: 30px;
+  text-align: right;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+/* Layout matrix for the keys */
+.button-grid {
+  display: grid;
+  /* 5 columns layout optimized for horizontal keyboards */
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 12px;
+}
+
+/* Individual Button Key Styles */
+.bento-card {
+  border: none;
+  border-radius: 16px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 30px 30px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.double-height {
+  grid-row: span 2;
+  height: 100%; /* Spans across 2 rows perfectly */
+}
+
+/* Bento Color Palette Styling */
+.num {
+  background: #2c2c2e;
+  color: #ffffff;
+}
+
+.num:hover { background: #3a3a3c; }
+
+.operator {
+  background: #ff9f0a;
+  color: #ffffff;
+}
+.operator:hover { background: #ffb340; }
+
+.utility {
+  background: #a5a5a5;
+  color: #000000;
+}
+.utility:hover { background: #d4d4d4; }
+
+.float {
+  background: #a5a5a5;
+  color: #000000;
+}
+.float:hover { background: #d4d4d4; }
+
+/* Click feedback dynamic effect */
+.bento-card:active {
+  transform: scale(0.96);
+}
